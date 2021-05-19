@@ -38,30 +38,9 @@ chmod -R 755 ./package/collected/samba36
 
 
 # 修改版本号-webui
-modelmark=R`TZ=UTC-8 date +%Y-%m-%d -d +"0"days`' by xylz0928'
+modelmark=R`TZ=UTC-8 date +%Y-%m-%d -d +"0"days`' by JIA'
 sed -i "s/DISTRIB_REVISION='R[0-9]*\.[0-9]*\.[0-9]*/DISTRIB_REVISION='$modelmark/g" ./package/lean/default-settings/files/zzz-default-settings
 
-
-# 修改tty banner
-
-
-echo "      █      █  ▚           ▟               █         " >> /tmp/mark
-echo "     █████   █      █████████     █        █████████  " >> /tmp/mark
-echo "    █ ▃ ██ ██████   ██            █        █   ██     " >> /tmp/mark
-echo "  ██ ▃ ██   █ █     █████████     ██████ ██ ████████  " >> /tmp/mark
-echo "     ██    █   █    █ ██████  ███▟          █  ██     " >> /tmp/mark
-echo "   ██     █     ██  █ █    █      █         █  ██     " >> /tmp/mark
-echo "    ▞  ▚   ▚   ▚    █ █    █      █   █  ████████████ " >> /tmp/mark
-echo "  ▞▞▞  ▚▚▚ ▚▚▚ ▚▚▚ ▟  ██████      █████        ██     " >> /tmp/mark
-echo "                                               ██     " >> /tmp/mark
-echo " -----------------------------------------------------" >> /tmp/mark
-
-sed -i '1,5d' ./package/base-files/files/etc/banner
-sed -i '1r /tmp/mark' ./package/base-files/files/etc/banner
-
-# 修改版本号-tty
-echo ' Built on '$(TZ=UTC-8 date +%Y-%m-%d)' by xylz0928' >> ./package/base-files/files/etc/banner
-echo ' -----------------------------------------------------' >> ./package/base-files/files/etc/banner
 
 # Change Argon Theme
 rm -rf ./package/lean/luci-theme-argon
@@ -70,8 +49,8 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/colle
 
 # Change default BackGround img
 wget -O ./package/collected/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/xylz0928/Openwrt-Make-x86_7621/raw/main/BigSurLight.jpg
-svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons ./package/collected/lucimod
-mv package/collected/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
+#svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons ./package/collected/lucimod
+#mv package/collected/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
 
 
 # Change default theme
