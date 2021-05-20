@@ -18,6 +18,7 @@ rm -rf package/lean/luci-app-docker
 rm -rf package/lean/qt5
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
+rm -rf package/lean/adguarhome
 
 # Passwall 编译依赖
 svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ./tools/ucl
