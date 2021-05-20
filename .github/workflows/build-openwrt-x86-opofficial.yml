@@ -110,9 +110,9 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    #- name: Compile the firmware
-      #id: compile
-      #run: |
+    - name: Compile the firmware
+      id: compile
+      run: |
         #send_dingding="curl -s \"https://oapi.dingtalk.com/robot/send?access_token=${whkey}\" -H 'Content-Type: application/json' -d '{\"msgtype\": \"markdown\",\"markdown\": {\"title\":"
         #send_content0="【${model}】正在启动编译！请稍后大约4小时..."
         #markdown_splitline="\n\n---\n\n"
