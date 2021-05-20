@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   model: x86
   CONFIG_FILE: MakeMenu.x86.opofficial.config
