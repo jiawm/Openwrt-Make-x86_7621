@@ -20,13 +20,13 @@ rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/lean/adguarhome
 
-# Passwall 编译依赖
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ./tools/ucl
-chmod -R 755 ./tools/ucl
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ./tools/upx
-chmod -R 755 ./tools/upx
-echo '$(curdir)/upx/compile := $(curdir)/ucl/compile' >> ./tools/Makefile
-echo "tools-y += ucl upx" >> ./tools/Makefile
+# Passwall 编译依赖 最新取消
+#svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ./tools/ucl
+#chmod -R 755 ./tools/ucl
+#svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ./tools/upx
+#chmod -R 755 ./tools/upx
+#echo '$(curdir)/upx/compile := $(curdir)/ucl/compile' >> ./tools/Makefile
+#echo "tools-y += ucl upx" >> ./tools/Makefile
 
 
 # autosamba 依赖 samba
@@ -71,28 +71,29 @@ git clone https://github.com/destan19/OpenAppFilter.git package/collected/OpenAp
 # Add PushBot
 git clone https://github.com/zzsj0928/luci-app-pushbot package/collected/luci-app-pushbot
 
-# Add Hello World
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
+# Add Hello World 最新取消
+@git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
+
 #git lua-maxminddb 依赖
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
 
 
-# Add Passwall
-git clone https://github.com/xiaorouji/openwrt-passwall package/collected/openwrt-passwall
-rm -rf ./package/lean/dns2socks
-rm -rf ./package/lean/ipt2socks
-rm -rf ./package/lean/kcptun
-rm -rf ./package/lean/microsocks
-rm -rf ./package/lean/shadowsocksr-libev
-rm -rf ./package/lean/simple-obfs
-rm -rf ./package/lean/tcping
-rm -rf ./package/lean/trojan
+# Add Passwall 最新取消
+#git clone https://github.com/xiaorouji/openwrt-passwall package/collected/openwrt-passwall
+#rm -rf ./package/lean/dns2socks
+#rm -rf ./package/lean/ipt2socks
+#rm -rf ./package/lean/kcptun
+#rm -rf ./package/lean/microsocks
+#rm -rf ./package/lean/shadowsocksr-libev
+#rm -rf ./package/lean/simple-obfs
+#rm -rf ./package/lean/tcping
+#rm -rf ./package/lean/trojan
 # rm -rf ./package/lean/v2ray
-rm -rf ./package/lean/v2ray-plugin
-rm -rf ./package/collected/openwrt-passwall/naiveproxy
-rm -rf ./package/collected/openwrt-passwall/tcping
-rm -rf ./package/collected/openwrt-passwall/xray-core
-rm -rf ./package/collected/openwrt-passwall/v2ray
+#rm -rf ./package/lean/v2ray-plugin
+#rm -rf ./package/collected/openwrt-passwall/naiveproxy
+#rm -rf ./package/collected/openwrt-passwall/tcping
+#rm -rf ./package/collected/openwrt-passwall/xray-core
+#rm -rf ./package/collected/openwrt-passwall/v2ray
 # rm -rf ./package/openwrt-passwall/v2ray-plugin
 # rm -rf ./feeds/helloworld/naiveproxy
 # rm -rf ./feeds/helloworld/tcping
