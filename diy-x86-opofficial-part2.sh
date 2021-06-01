@@ -72,7 +72,7 @@ git clone https://github.com/destan19/OpenAppFilter.git package/collected/OpenAp
 git clone https://github.com/zzsj0928/luci-app-pushbot package/collected/luci-app-pushbot
 
 # Add Hello World 最新取消
-@git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
+#git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
 
 #git lua-maxminddb 依赖
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
