@@ -19,7 +19,7 @@ sed -i 's/invalid/# invalid/g' package/network/services/samba36/files/smb.conf.t
 
 # 修改版本号-webui
 modelmark=R`TZ=UTC-8 date +%Y-%m-%d -d +"0"days`' by xylz0928'
-sed -i "s/DISTRIB_REVISION='R[0-9]*\.[0-9]*\.[0-9]*/DISTRIB_REVISION='$modelmark/g" ./package/lean/default-settings/files/zzz-default-settings
+sed -i "s/DISTRIB_REVISION='R[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*/DISTRIB_REVISION='$modelmark/g" ./package/lean/default-settings/files/zzz-default-settings
 # sed -i 's/$(VERSION_DIST_SANITIZED)/$(VERSION_DIST_SANITIZED)-${modelmark}/g' include/image.mk
 # sed -i 's/$(VERSION_DIST_SANITIZED)/$(VERSION_DIST_SANITIZED)-$(shell TZ=UTC-8 date +%Y.%m.%d)_By_xylz0928/g' include/image.mk
 # echo "DISTRIB_REVISION='${modelmark}'" > ./package/base-files/files/etc/openwrt_release
@@ -77,6 +77,11 @@ mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/i
 # Change default theme
 sed -i 's/bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 
+# Modify default IP
+# sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+# Modify default Hostname
+# sed -i 's/OpenWrt/Openwrtx86/g' package/base-files/files/bin/config_generate
+
 # Remove the default apps
 sed -i 's/luci-app-zerotier //g' target/linux/x86/Makefile
 sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
@@ -84,11 +89,15 @@ sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
 sed -i 's/luci-app-jd-dailybonus //g' target/linux/x86/Makefile
 sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
 sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
-sed -i 's/luci-app-sfe //g' target/linux/x86/Makefile
+# sed -i 's/luci-app-sfe //g' target/linux/x86/Makefile
 sed -i 's/luci-app-uugamebooster//g' target/linux/x86/Makefile
-sed -i 's/-luci-app-flowoffload//g' target/linux/x86/Makefile
-sed -i 's/kmod-drm-amdgpu \\/kmod-drm-amdgpu/g' target/linux/x86/Makefile
-
+# sed -i 's/-luci-app-flowoffload//g' target/linux/x86/Makefile
+# sed -i 's/kmod-drm-amdgpu \\/kmod-drm-amdgpu/g' target/linux/x86/Makefile
+sed -e '/luci-app-filetransfer/d' include/target.mk
+sed -e '/luci-app-vlmcsd/d' include/target.mk
+sed -e '/luci-app-flowoffload/d' include/target.mk
+# Re-enable SFE for 5.10
+# sed -i 's/@!LINUX_5_10 //g' package/lean/luci-app-sfe/Makefile
 
 # Add ServerChan
 # git clone https://github.com/tty228/luci-app-serverchan.git feeds/luci/applications/luci-app-serverchan
@@ -99,7 +108,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-ser
 git clone https://github.com/rufengsuixing/luci-app-onliner.git package/luci-app-onliner
 
 # Add OpenAppFilter
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+# git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 
 
 # Add PushBot
